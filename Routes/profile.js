@@ -66,7 +66,7 @@ router.delete('/deleteAddress/:id', async(req,resp)=>{
 })
 
 //get address by id 
-router.get('/getUser Address/:id', async(req,resp)=>{
+router.get('/getUserAddress/:id', async(req,resp)=>{
   try {
     const {id} = req.params
     const addressDetails = await Profile.findById(id).select('-_id -user')
