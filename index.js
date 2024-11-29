@@ -10,6 +10,7 @@ const UserRouter = require('./Routes/user')
 const cartRouter = require('./Routes/cart')
 const paymentRouter =  require('./Routes/payment')
 const profileRouter = require('./Routes/profile')
+const foodRouter = require('./Routes/food')
 
 const port = process.env.PORT
 
@@ -24,6 +25,7 @@ app.use('/user',UserRouter)
 app.use('/cart',cartRouter)
 app.use('/payment',paymentRouter)
 app.use('/address',profileRouter)
+app.use('/food',foodRouter)
 
 
 
