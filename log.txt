@@ -116,3 +116,6 @@ GET /food/Burgers ::1 2024-11-29T18:10:06.829Z
 GET /food/Fries ::1 2024-11-29T18:19:14.863Z
 GET /food/Colddrinks ::1 2024-11-29T18:19:22.036Z
 GET /food/ColdDrinks ::1 2024-11-29T18:19:37.527Z
+POST /user/login ::1 2024-12-01T20:02:45.420Z
+PUT /cart/updateCart/6748a4a05914aa356bfeff2d ::1 2024-12-01T20:03:05.192Z
+PUT /cart/updateCart/6748a4a05914aa356bfeff2d ::1 2024-12-01T20:03:48.953Z

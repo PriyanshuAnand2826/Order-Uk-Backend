@@ -9,13 +9,13 @@ const router = express.Router()
 router.post('/addToCart',authMiddleware,async(req,resp)=>{
  try {
     const {user} = req
-    const {foodName,price} = req.body
+    const {foodName,price,unitPrice} = req.body
     const userDetails = await User.findById(user)
     let product = await Cart.find({foodName,user})
     if(product.length !== 0 ){ 
       return resp.status(201).json({message:"Item is already in cart",product})   
     }
-    product = new Cart({foodName,price,name:userDetails.name,email:userDetails.email,user})
+    product = new Cart({foodName,price,unitPrice,name:userDetails.name,email:userDetails.email,user})
     await product.save()
     return resp.status(200).json({success:true,message:"Added to cart successfully",product,user})
  } catch (error) {
@@ -46,7 +46,7 @@ router.put('/updateCart/:id',async(req,resp)=>{
         if (!cartItem) {
           return resp.status(404).json({ message: "Item not found in cart" });
         }
-     const updatedPrice = cartItem.price * quantity
+     const updatedPrice = cartItem.unitPrice * quantity
      cartItem.quantity = quantity;
      cartItem.price = updatedPrice;
 

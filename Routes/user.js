@@ -55,7 +55,7 @@ router.post("/login", async (req, resp) => {
       } else {
         return resp
           .status(201)
-          .json({ success: false, message: "Invalid Password" });
+          .json({ success: true, message: "Invalid Password" });
       }
     }
 

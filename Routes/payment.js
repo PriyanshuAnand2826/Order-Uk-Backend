@@ -10,7 +10,7 @@ router.post('/createPayment',authMiddleware,async (req,resp)=>{
     const {user} = req
     const userDetails = await User.findById(user)
     const {cardNumber,expiration,cvv,cardName} = req.body
-    let paymentDetails = await Payment.find({cardNumber})
+    let paymentDetails = await Payment.find({user,cardNumber})
     if(paymentDetails.length !== 0){
         return resp.status(201).json({message:'Card Number already exists',success:false})
     }
