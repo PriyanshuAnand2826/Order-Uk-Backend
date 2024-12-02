@@ -41,11 +41,11 @@ router.put('/editPayment/:id',authMiddleware,async(req,resp)=>{
     try {
        const {id} = req.params
        const {user} = req
-       const {cardNumber,expiration,cvv,cardName} = req.body
-       const cardExist = await Payment.find({user,cardNumber})
-       if(cardExist.length !== 0){
-        return resp.status(200).json({success:true,message:"Card Already exist for this user"})
-       }
+       const {expiration,cvv,cardName} = req.body
+    //    const cardExist = await Payment.find({user,cardNumber})
+    //    if(cardExist.length !== 0){
+    //     return resp.status(200).json({success:true,message:"Card Already exist for this user"})
+    //    }
        const paymentDetails = await Payment.findByIdAndUpdate(id,{cardNumber,expiration,cvv,cardName},{new:true})
        return resp.status(200).json({success:true,message:"Payment Details Updated Successfully"})
     } catch (error) {
