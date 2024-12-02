@@ -46,7 +46,7 @@ router.put('/editPayment/:id',authMiddleware,async(req,resp)=>{
     //    if(cardExist.length !== 0){
     //     return resp.status(200).json({success:true,message:"Card Already exist for this user"})
     //    }
-       const paymentDetails = await Payment.findByIdAndUpdate(id,{cardNumber,expiration,cvv,cardName},{new:true})
+       const paymentDetails = await Payment.findByIdAndUpdate(id,{expiration,cvv,cardName},{new:true})
        return resp.status(200).json({success:true,message:"Payment Details Updated Successfully"})
     } catch (error) {
         return resp.status(400).json({message:'Internal Server Error',error:error.message})
